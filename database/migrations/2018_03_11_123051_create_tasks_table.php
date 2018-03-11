@@ -22,11 +22,11 @@ class CreateTasksTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('project_id')->unsigned()->nullable();
             $table->dateTime('start_date')->nullable();
-            $table->dateTime('end_date')->nullable();
+            $table->dateTime('end_date')->nullable()->nullable();;
             $table->dateTime('completed_on')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->unsignedInteger('deleted_by')->nullable();
+            $table->integer('deleted_by')->unsigned()->nullable();
         });
 
         Schema::table('tasks', function(Blueprint $table) {

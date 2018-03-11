@@ -25,7 +25,7 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->integer('created_by')->unsigned();
-            $table->integer('deleted_by')->unsigned();
+            $table->integer('deleted_by')->unsigned()->nullable();;
         });
 
         Schema::table('projects', function(Blueprint $table) {

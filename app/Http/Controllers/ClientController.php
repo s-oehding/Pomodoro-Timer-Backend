@@ -59,7 +59,7 @@ class ClientController extends AppBaseController
 
         $client = $this->clientRepository->create($input);
 
-        Flash::success('Client saved successfully.');
+        //Flash::success('Client saved successfully.');/**/
 
         return redirect(route('clients.index'));
     }
