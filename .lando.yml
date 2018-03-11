@@ -1,0 +1,33 @@
+# Laravel recipe
+name: pomodor-timer
+
+# Start with the default laravel recipe
+recipe: laravel
+
+# Configure the laravel recipe
+config:
+  php: '7.2'
+  via: nginx
+  webroot: public
+  database: mysql
+  cache: redis
+  xdebug: true
+proxy:
+  pma:
+    - pma.pomodor-timer.lndo.site
+services:
+  appserver:
+    extras:
+      - apt-get update -y
+      - apt-get install vim -y
+    overrides:
+      services:
+        environment:
+          MYCONFIGVAR1: secretpasscode
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+tooling:
+  vim:
+    service: appserver
